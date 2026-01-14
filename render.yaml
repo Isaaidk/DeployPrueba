@@ -41,9 +41,7 @@ services:
       - key: SPRING_PROFILES_ACTIVE
         value: docker
       - key: RABBITMQ_HOST
-        fromService:
-          name: votaya-broker
-          property: host
+        value: votaya-broker
 
   # ---------- LEDGER SERVICE ----------
   - type: pserv
@@ -58,9 +56,7 @@ services:
       - key: SPRING_PROFILES_ACTIVE
         value: docker
       - key: RABBITMQ_HOST
-        fromService:
-          name: votaya-broker
-          property: host
+        value: votaya-broker
       - key: DB_HOST
         fromDatabase:
           name: votaya-db
@@ -87,8 +83,16 @@ services:
   - type: pserv
     name: votaya-broker
     plan: starter
-    image:
-      url: rabbitmq:3.13-management-alpine
+    env: docker
+    repo: https://github.com/Isaaidk/DeployPrueba.git
+    branch: pruebadep
+    dockerfilePath: Dockerfile
+    dockerContext: VotaYa-Backend/RabbitMQ
+    envVars:
+      - key: RABBITMQ_DEFAULT_USER
+        value: guest
+      - key: RABBITMQ_DEFAULT_PASS
+        value: guest
 
 # ---------- POSTGRES DATABASE ----------
 databases:
