@@ -9,8 +9,8 @@ services:
     env: docker
     dockerfilePath: Dockerfile
     dockerContext: ./VotaYa Digital Voting Platform
-    repo: https://github.com/tu_usuario/tu_repositorio.git # IMPORTANT: Change this to your repository URL
-    branch: main # IMPORTANT: Change this to your branch
+    repo: https://github.com/DevBrandonArellano/VotaYa.git # IMPORTANT: Change this to your repository URL
+    branch: deploy # IMPORTANT: Change this to your branch
     ports:
       - 80
     
@@ -36,8 +36,8 @@ services:
     env: docker
     dockerfilePath: Dockerfile
     dockerContext: ./VotaYa-Backend/AuthService
-    repo: https://github.com/tu_usuario/tu_repositorio.git # IMPORTANT: Change this to your repository URL
-    branch: main # IMPORTANT: Change this to your branch
+    repo: https://github.com/DevBrandonArellano/VotaYa.git # IMPORTANT: Change this to your repository URL
+    branch: deploy # IMPORTANT: Change this to your branch
     ports:
       - 8081
     envVars:
@@ -49,8 +49,8 @@ services:
     env: docker
     dockerfilePath: Dockerfile
     dockerContext: ./VotaYa-Backend/VotingService
-    repo: https://github.com/tu_usuario/tu_repositorio.git # IMPORTANT: Change this to your repository URL
-    branch: main # IMPORTANT: Change this to your branch
+    repo: https://github.com/DevBrandonArellano/VotaYa.git # IMPORTANT: Change this to your repository URL
+    branch: deploy # IMPORTANT: Change this to your branch
     ports:
       - 8082
     envVars:
@@ -67,8 +67,8 @@ services:
     env: docker
     dockerfilePath: Dockerfile
     dockerContext: ./VotaYa-Backend/LedgerService
-    repo: https://github.com/tu_usuario/tu_repositorio.git # IMPORTANT: Change this to your repository URL
-    branch: main # IMPORTANT: Change this to your branch
+    repo: https://github.com/DevBrandonArellano/VotaYa.git # IMPORTANT: Change this to your repository URL
+    branch: deploy # IMPORTANT: Change this to your branch
     ports:
       - 8083
     envVars:
@@ -92,8 +92,8 @@ services:
     env: docker
     dockerfilePath: Dockerfile
     dockerContext: ./VotaYa-Backend/ReportService
-    repo: https://github.com/tu_usuario/tu_repositorio.git # IMPORTANT: Change this to your repository URL
-    branch: main # IMPORTANT: Change this to your branch
+    repo: https://github.com/DevBrandonArellano/VotaYa.git # IMPORTANT: Change this to your repository URL
+    branch: deploy # IMPORTANT: Change this to your branch
     ports:
       - 8084
     envVars:
