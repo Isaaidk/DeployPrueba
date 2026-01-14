@@ -9,9 +9,8 @@ services:
     env: docker
     repo: https://github.com/Isaaidk/DeployPrueba.git
     branch: pruebadep
-    dockerfile: Dockerfile
-    buildContext: VotaYa Digital Voting Platform
-    startCommand: nginx -g "daemon off;"
+    dockerfilePath: Dockerfile
+    dockerContext: VotaYa Digital Voting Platform
     envVars:
       - key: PORT
         value: 3000
@@ -23,144 +22,8 @@ services:
     env: docker
     repo: https://github.com/Isaaidk/DeployPrueba.git
     branch: pruebadep
-    dockerfile: Dockerfile
-    buildContext: VotaYa-Backend/AuthService
-    startCommand: java -jar app.jar
-    envVars:
-      - key: SPRING_PROFILES_ACTIVE
-        value: docker
-      - key: SERVER_PORT
-        value: 8081
-
-  # ---------- VOTING SERVICE ----------
-  - type: pserv
-    name: voting-service
-    plan: starter
-    env: docker
-    repo: https://github.com/Isaaidk/DeployPrueba.git
-    branch: pruebadep
-    dockerfile: Dockerfile
-    buildContext: VotaYa-Backend/VotingService
-    startCommand: java -jar app.jar
-    envVars:
-      - key: SPRING_PROFILES_ACTIVE
-        value: docker
-      - key: SERVER_PORT
-        value: 8082
-      - key: RABBITMQ_HOST
-        fromService:
-          name: votaya-broker
-          property: host
-
-  # ---------- LEDGER SERVICE ----------
-  - type: pserv
-    name: ledger-service
-    plan: starter
-    env: docker
-    repo: https://github.com/Isaaidk/DeployPrueba.git
-    branch: pruebadep
-    dockerfile: Dockerfile
-    buildContext: VotaYa-Backend/LedgerService
-    startCommand: java -jar app.jar
-    envVars:
-      - key: SPRING_PROFILES_ACTIVE
-        value: docker
-      - key: SERVER_PORT
-        value: 8083
-      - key: RABBITMQ_HOST
-        fromService:
-          name: votaya-broker
-          property: host
-      - key: DB_HOST
-        fromDatabase:
-          name: votaya-db
-          property: host
-      - key: DB_NAME
-        fromDatabase:
-          name: votaya-db
-          property: database
-      - key: DB_USER
-        fromDatabase:
-          name: votaya-db
-          property: user
-      - key: DB_PASSWORD
-        fromDatabase:
-          name: votaya-db
-          property: password
-
-  # ---------- REPORT SERVICE ----------
-  - type: pserv
-    name: report-service
-    plan: starter
-    env: docker
-    repo: https://github.com/Isaaidk/DeployPrueba.git
-    branch: pruebadep
-    dockerfile: Dockerfile
-    buildContext: VotaYa-Backend/ReportService
-    startCommand: java -jar app.jar
-    envVars:
-      - key: SPRING_PROFILES_ACTIVE
-        value: docker
-      - key: SERVER_PORT
-        value: 8084
-      - key: DB_HOST
-        fromDatabase:
-          name: votaya-db
-          property: host
-      - key: DB_NAME
-        fromDatabase:
-          name: votaya-db
-          property: database
-      - key: DB_USER
-        fromDatabase:
-          name: votaya-db
-          property: user
-      - key: DB_PASSWORD
-        fromDatabase:
-          name: votaya-db
-          property: password
-
-  # ---------- RABBITMQ ----------
-  - type: pserv
-    name: votaya-broker
-    plan: starter
-    image:
-      url: rabbitmq:3.13-management-alpine
-    envVars:
-      - key: RABBITMQ_DEFAULT_USER
-        value: guest
-      - key: RABBITMQ_DEFAULT_PASS
-        value: guest
-
-# ---------- POSTGRES DATABASE ----------
-databases:
-  - name: votaya-db
-    databaseName: votayadb
-    user: votaya
-    plan: free
-
-services:
-  # ---------- FRONTEND ----------
-  - type: web
-    name: frontend
-    plan: free
-    env: docker
-    repo: https://github.com/Isaaidk/DeployPrueba.git
-    branch: pruebadep
     dockerfilePath: Dockerfile
-    dockerContext: "VotaYa Digital Voting Platform"
-    healthCheck:
-      path: /
-
-  # ---------- AUTH SERVICE ----------
-  - type: pserv
-    name: auth-service
-    plan: starter
-    env: docker
-    repo: https://github.com/Isaaidk/DeployPrueba.git
-    branch: pruebadep
-    dockerfilePath: Dockerfile
-    dockerContext: "VotaYa-Backend/AuthService"
+    dockerContext: VotaYa-Backend/AuthService
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: docker
@@ -173,7 +36,7 @@ services:
     repo: https://github.com/Isaaidk/DeployPrueba.git
     branch: pruebadep
     dockerfilePath: Dockerfile
-    dockerContext: "VotaYa-Backend/VotingService"
+    dockerContext: VotaYa-Backend/VotingService
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: docker
@@ -190,7 +53,7 @@ services:
     repo: https://github.com/Isaaidk/DeployPrueba.git
     branch: pruebadep
     dockerfilePath: Dockerfile
-    dockerContext: "VotaYa-Backend/LedgerService"
+    dockerContext: VotaYa-Backend/LedgerService
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: docker
@@ -211,7 +74,7 @@ services:
     repo: https://github.com/Isaaidk/DeployPrueba.git
     branch: pruebadep
     dockerfilePath: Dockerfile
-    dockerContext: "VotaYa-Backend/ReportService"
+    dockerContext: VotaYa-Backend/ReportService
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: docker
