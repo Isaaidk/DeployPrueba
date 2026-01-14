@@ -5,6 +5,7 @@ services:
   # ---------- FRONTEND ----------
   - type: web
     name: frontend
+    plan: free
     env: docker
     repo: https://github.com/Isaaidk/DeployPrueba.git
     branch: pruebadep
@@ -16,6 +17,7 @@ services:
   # ---------- AUTH SERVICE ----------
   - type: pserv
     name: auth-service
+    plan: starter
     env: docker
     repo: https://github.com/Isaaidk/DeployPrueba.git
     branch: pruebadep
@@ -28,6 +30,7 @@ services:
   # ---------- VOTING SERVICE ----------
   - type: pserv
     name: voting-service
+    plan: starter
     env: docker
     repo: https://github.com/Isaaidk/DeployPrueba.git
     branch: pruebadep
@@ -44,6 +47,7 @@ services:
   # ---------- LEDGER SERVICE ----------
   - type: pserv
     name: ledger-service
+    plan: starter
     env: docker
     repo: https://github.com/Isaaidk/DeployPrueba.git
     branch: pruebadep
@@ -64,6 +68,7 @@ services:
   # ---------- REPORT SERVICE ----------
   - type: pserv
     name: report-service
+    plan: starter
     env: docker
     repo: https://github.com/Isaaidk/DeployPrueba.git
     branch: pruebadep
@@ -80,6 +85,7 @@ services:
   # ---------- RABBITMQ ----------
   - type: pserv
     name: votaya-broker
+    plan: starter
     image:
       url: rabbitmq:3.13-management-alpine
 
