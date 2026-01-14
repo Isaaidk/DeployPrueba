@@ -80,7 +80,6 @@ services:
   # ---------- RABBITMQ ----------
   - type: pserv
     name: votaya-broker
-    env: docker
     image:
       url: rabbitmq:3.13-management-alpine
 
