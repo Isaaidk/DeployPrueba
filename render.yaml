@@ -9,7 +9,7 @@ services:
     repo: https://github.com/Isaaidk/DeployPrueba.git
     branch: pruebadep
     dockerfilePath: Dockerfile
-    dockerContext: VotaYa Digital Voting Platform
+    dockerContext: "VotaYa Digital Voting Platform"
     healthCheck:
       path: /
 
@@ -20,7 +20,7 @@ services:
     repo: https://github.com/Isaaidk/DeployPrueba.git
     branch: pruebadep
     dockerfilePath: Dockerfile
-    dockerContext: VotaYa-Backend/AuthService
+    dockerContext: "VotaYa-Backend/AuthService"
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: docker
@@ -32,7 +32,7 @@ services:
     repo: https://github.com/Isaaidk/DeployPrueba.git
     branch: pruebadep
     dockerfilePath: Dockerfile
-    dockerContext: VotaYa-Backend/VotingService
+    dockerContext: "VotaYa-Backend/VotingService"
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: docker
@@ -48,7 +48,7 @@ services:
     repo: https://github.com/Isaaidk/DeployPrueba.git
     branch: pruebadep
     dockerfilePath: Dockerfile
-    dockerContext: VotaYa-Backend/LedgerService
+    dockerContext: "VotaYa-Backend/LedgerService"
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: docker
@@ -68,7 +68,7 @@ services:
     repo: https://github.com/Isaaidk/DeployPrueba.git
     branch: pruebadep
     dockerfilePath: Dockerfile
-    dockerContext: VotaYa-Backend/ReportService
+    dockerContext: "VotaYa-Backend/ReportService"
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: docker
